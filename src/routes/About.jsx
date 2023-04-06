@@ -1,28 +1,49 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Contact from "../components/Contact";
+import Team from "../components/Team";
+import Footer from "../layouts/Footer";
 
-function Navbar() {
-  const [show, setShow] = useState(false);
-
+export default function About() {
+    const [show, setShow] = useState(false); 
   return (
     <>
-      <div className="lg:px-6 xl:px-0">
+        <div className="lg:px-6 xl:px-0 bg-white z-50">
         <div className="container mx-auto relative z-20">
           <nav className="w-full absolute">
             <div className="hidden lg:flex w-full f-f-p justify-between items-center py-6 relative">
               <div className="w-2/3">
-                <img src="/image/logo.png" alt="" className="w-[200px] h-full" />
+                <img
+                  src="/image/logo.png"
+                  alt=""
+                  className="w-[200px] h-full"
+                />
               </div>
               <div className="md:w-1/2 xl:w-1/3">
                 <ul className="flex justify-evenly w-full items-center text-gray-600">
+                  <li className="pb-1">
+                    <Link
+                      to="/"
+                      className="btn btn-ghost normal-case text-3xl text-black"
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li className=" pb-1">
+                    <Link
+                      to="/services"
+                      className="btn btn-ghost normal-case text-3xl text-black"
+                    >
+                      Services
+                    </Link>
+                  </li>
                   <li className="border-b-4 border-[#ffc58a] pb-1">
-                    <Link to="/" className="btn btn-ghost normal-case text-3xl text-black">Home</Link>
-                  </li>
-                  <li className="border-b-4 border-transparent pb-1">
-                    <Link to="/services" className="btn btn-ghost normal-case text-3xl text-black">Services</Link>
-                  </li>
-                  <li className="border-b-4 border-transparent pb-1">
-                    <Link to="/about" className="btn btn-ghost normal-case text-3xl text-black">About</Link>
+                    <Link
+                      to="/about"
+                      className="btn btn-ghost normal-case text-3xl text-black"
+                    >
+                      About
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -30,15 +51,25 @@ function Navbar() {
           </nav>
           {/*Nav responsive */}
           <nav className="lg:hidden">
-            <div className={show ? "bg-white flex justify-between items-center px-4" : "flex justify-between items-center px-4"}>
+            <div
+              className={
+                show
+                  ? "bg-white flex justify-between items-center px-4"
+                  : "flex justify-between items-center px-4"
+              }
+            >
               <div>
-              <img src="/image/logo.png" alt="" className="w-[130px] h-[110px] md:h-[200px] md:w-[200px]" />
+                <img
+                  src="/image/logo.png"
+                  alt=""
+                  className="w-[130px] h-[110px] md:h-[200px] md:w-[200px]"
+                />
               </div>
               <div className=" flex items-center">
                 {show && (
                   <ul
                     id="list"
-                    className=" p-2 border-r bg-white absolute rounded top-0 left-0 right-0 shadow mt-24 md:mt-16 h-[100vh]"
+                    className=" p-2 border-r bg-white absolute rounded top-0 left-0 right-0 shadow mt-24 md:mt-16 h-[100vh] z-50"
                   >
                     <li className="flex cursor-pointer text-gray-600 text-4xl justify-center leading-3 tracking-normal mt-20 py-2 hover:text-[#ffc58a] focus:text-[#ffc58a] focus:outline-none">
                       <Link to="/">
@@ -50,7 +81,7 @@ function Navbar() {
                       onclick="dropdownHandler(this)"
                     >
                       <Link to="/services">
-                        <span className="ml-2 font-bold">Services</span>
+                        <span className="ml-2 font-bold ">Services</span>
                       </Link>
                     </li>
                     <li className="flex cursor-pointer text-gray-600 text-4xl justify-center leading-3 mt-20 tracking-normal py-2 hover:text-[#ffc58a]  items-center focus:text-[#ffc58a] focus:outline-none">
@@ -108,8 +139,10 @@ function Navbar() {
           </nav>
         </div>
       </div>
+      {/** */}
+      <Team/>
+      <Contact/>
+      <Footer/>
     </>
-  );
+  )
 }
-
-export default Navbar;

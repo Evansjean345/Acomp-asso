@@ -3,3 +3,8 @@
         background-size: cover;
     }
 }
+@media (width >= 640px) {
+    .br{
+        display: none;
+    }
+}
